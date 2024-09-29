@@ -21,7 +21,7 @@ function Main() {
       }
     }
     getData()
-  }, [])
+  }, [selectedCategory])
 
   return (
     <Stack>

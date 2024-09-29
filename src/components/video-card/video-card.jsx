@@ -5,11 +5,11 @@ import { CheckCircle } from "@mui/icons-material"
 
 function VideoCard({video}) {
   return (
-    <Card sx={{width: '320px', boxShadow: 0, borderRadius: 0}}>
+    <Card sx={{width: {xs: '100%', sm: '360px', md: '320px'}, boxShadow: 0, borderRadius: 0}}>
       <CardMedia
         image={video?.snippet?.thumbnails?.high?.url}
         alt={video?.snippet?.title}
-        sx={{width: '360px', height: '180px'}}
+        sx={{width: {xs: '100%', sm: '360px'}, height: '180px'}}
       />
       <CardContent
         sx={{backgroundColor: colors.primary, height: '200px', position: 'relative'}}
