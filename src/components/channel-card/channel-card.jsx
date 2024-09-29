@@ -34,6 +34,7 @@ function ChannelCard({video}) {
             border: '1px solid #e3e3e3'
           }}
         >
+        </CardMedia>
           <Typography variant={'h6'}>
             {video?.snippet?.title}
             <CheckCircle 
@@ -49,7 +50,6 @@ function ChannelCard({video}) {
               {parseInt(video?.statistics?.subscriberCount).toLocaleString('en-US')} Subscriers
             </Typography>
           )}
-        </CardMedia>
       </CardContent>
     </Box>
   )

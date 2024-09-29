@@ -1,8 +1,8 @@
 import { Box, Stack } from "@mui/material"
-import { VideoCard, ChannelCard } from '../'
+import { VideoCard, ChannelCard, Loader } from '../'
 
 function Videos({videos}) {
-  console.log(videos, 'videos')
+  if(!videos.length) return <Loader/>
   return (
     <Stack
       width={'100%'}
@@ -12,8 +12,8 @@ function Videos({videos}) {
       alignItems={'center'}
       gap={2}
     >
-      {videos.map(item => (
-        <Box key={item.id.videoId}>
+      {videos.map((item, idx) => (
+        <Box key={idx}>
           {item.id.videoId && <VideoCard video={item} />}
           {item.id.channelId && <ChannelCard video={item} />}
         </Box>
