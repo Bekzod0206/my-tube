@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { ApiService } from "../../service/api.service"
 import { Avatar, Box, Chip, Stack, Typography } from "@mui/material"
 import ReactPlayer from 'react-player'
@@ -44,7 +44,7 @@ function VideoDetail() {
             className='react-player'
             controls
           />
-          {tags.map((item, idx) => (
+          {tags?.map((item, idx) => (
             <Chip
               label={item}
               key={idx}
@@ -75,6 +75,7 @@ function VideoDetail() {
             </Stack>
           </Stack>
           <Stack direction={'row'} py={1} px={2}>
+          <Link to={`/channel/${channelId}`}>
             <Stack direction={'row'} alignItems={'center'} gap={'5px'} marginTop={'5px'}>
               <Avatar
                 alt={channelTitle}
@@ -85,6 +86,7 @@ function VideoDetail() {
                 <CheckCircle sx={{fontSize: '12px',color: 'gray', ml: '5px'}} />
               </Typography>
             </Stack>
+          </Link>
           </Stack>
         </Box>
         <Box

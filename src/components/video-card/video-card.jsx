@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 function VideoCard({video}) {
   return (
     <Card sx={{width: {xs: '100%', sm: '360px', md: '320px'}, boxShadow: 0, borderRadius: 0}}>
-      <Link to={`/video/${video.id.videoId}`}>
+      <Link to={`/video/${video?.id?.videoId}`}>
         <CardMedia
           image={video?.snippet?.thumbnails?.high?.url}
           alt={video?.snippet?.title}
@@ -17,7 +17,7 @@ function VideoCard({video}) {
       <CardContent
         sx={{backgroundColor: colors.primary, height: '200px', position: 'relative'}}
       >
-        <Link to={`/video/${video.id.videoId}`}>
+        <Link to={`/video/${video?.id?.videoId}`}>
           <Typography my={'5px'} sx={{opacity: '.4'}}>
             {moment(video?.snippet?.publishedAt).fromNow()}
           </Typography>
@@ -28,7 +28,7 @@ function VideoCard({video}) {
             {video?.snippet?.description.slice(0, 70)}
           </Typography>
         </Link>
-        <>
+        <Link to={`/channel/${video?.snippet?.channelId}`}>
           <Stack
             direction={'row'}
             position={'absolute'}
@@ -42,7 +42,7 @@ function VideoCard({video}) {
               <CheckCircle sx={{fontSize: '12px', color: 'gray', ml: '5px' }}/>
             </Typography>
           </Stack>
-        </>
+        </Link>
       </CardContent>
     </Card>
   )
